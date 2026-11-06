@@ -276,15 +276,13 @@ const P={
 const ic=(n,s=20,fill)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${P[n]}"/></svg>`;
 
 /* ========== Datos ilustrativos ========== */
-const RESTS={borboleta:'Borboleta',foods:'Cuando era Foods Company',disnack:'Disnack',bristo:'Cafetería Bristo',wonka:'Wonka',sabor:'Café Sabor',sol:'Café del Sol',isabela:'Cafeterías Isabela',antony:'Antony'};
-const REST_INFO={borboleta:'Bajada a Bienestar, cerca al Samán, y Edificio F',foods:'Bajada a Bienestar Universitario',disnack:'Sede principal y Edificio E',bristo:'Casa SAE · Lunes a viernes, 11:00 a. m. a 4:00 p. m.',wonka:'Edificios de clases',sabor:'Zonas de mayor flujo peatonal',sol:'Zonas de mayor flujo peatonal',isabela:'Zona central',antony:'Zona central'};
+const RESTS={borboleta:'Borboleta',disnack:'Disnack',bristo:'Cafetería Bristo',wonka:'Wonka',sabor:'Café Sabor',sol:'Café del Sol',isabela:'Cafeterías Isabela',quindio:'Café Quindío',qbano:'Sandwich Qbano',ventolini:'Ventolini'};
+const REST_INFO={borboleta:'Bajada a Bienestar, cerca al Samán, y Edificio F',disnack:'Sede principal y Edificio E',bristo:'Casa SAE · Lunes a viernes, 11:00 a. m. a 4:00 p. m.',wonka:'Edificios de clases',sabor:'Zonas de mayor flujo peatonal',sol:'Zonas de mayor flujo peatonal',isabela:'Zona central',quindio:'Campus Icesi',qbano:'Campus Icesi',ventolini:'Campus Icesi'};
 const mk=(id,name,rest,price,p,c,g,sugar,veg,ing,al)=>({id,name,rest,price,p,c,g,sugar,veg,ing,al,kcal:Math.round((p*4+c*4+g*9)/5)*5});
 const DISHES=[
  mk('d1','Bowl de ensalada con pollo','borboleta',19000,38,32,14,5,false,['Pollo a la plancha','Mix de lechugas','Tomate','Maíz','Vinagreta'],[]),
  mk('d2','Pasta personalizada con pollo','borboleta',20000,35,72,13,6,false,['Pasta','Pollo','Salsa a elección','Verduras salteadas'],['Gluten']),
  mk('d3','Bowl de ensalada vegetariano','borboleta',17500,16,46,16,5,true,['Garbanzo','Mix de lechugas','Aguacate','Quinoa','Vinagreta'],[]),
- mk('d4','Combo de almuerzo del día','foods',18000,34,78,20,4,false,['Proteína del día','Arroz','Principio','Ensalada','Bebida'],[]),
- mk('d5','Hamburguesa casera','foods',21000,32,48,30,7,false,['Pan','Carne de res','Queso','Lechuga','Tomate','Salsa de la casa'],['Gluten','Lácteos','Huevo']),
  mk('d6','Almuerzo ejecutivo del día','disnack',15000,30,85,16,3,false,['Proteína del día','Arroz','Granos','Ensalada','Sopa'],[]),
  mk('d7','Empanada con café','disnack',6000,8,34,14,6,false,['Empanada de carne','Café'],[]),
  mk('d8','Almuerzo del día','bristo',16500,36,80,18,4,false,['Proteína del día','Arroz','Principio','Ensalada','Jugo'],[]),
@@ -293,7 +291,10 @@ const DISHES=[
  mk('d11','Pastel de pollo con café','sabor',7500,14,40,20,5,false,['Pastel de hojaldre','Pollo','Café'],['Gluten','Lácteos']),
  mk('d12','Croissant de queso con café','sol',8000,12,36,18,6,true,['Croissant horneado','Queso','Café'],['Gluten','Lácteos']),
  mk('d13','Corrientazo de pollo','isabela',14000,32,78,14,3,false,['Pollo','Arroz','Granos','Tajadas','Ensalada'],[]),
- mk('d14','Corrientazo de res','antony',14500,30,76,18,3,false,['Res','Arroz','Granos','Ensalada'],[]),
+ mk('d14','Café con pandebono','quindio',8500,10,30,12,4,true,['Café','Pandebono','Queso'],['Lácteos']),
+ mk('d15','Sándwich cubano clásico','qbano',18000,34,46,20,4,false,['Pan','Cerdo','Jamón','Queso','Pepinillos','Mostaza'],['Gluten','Lácteos']),
+ mk('d16','Sándwich de pollo','qbano',17500,32,44,14,4,false,['Pan','Pollo','Queso','Lechuga','Tomate'],['Gluten','Lácteos']),
+ mk('d17','Almuerzo del día Ventolini','ventolini',16000,32,72,16,4,false,['Proteína del día','Arroz','Principio','Ensalada'],[]),
 ];
 const FILTERS={prot:{t:'Alto en proteína',f:d=>d.p>=30},veg:{t:'Vegetariano',f:d=>d.veg},sug:{t:'Bajo en azúcar',f:d=>d.sugar<=5}};
 const POINTS=[{id:'e',t:'Edificio E',s:'Entrada del edificio'},{id:'f',t:'Edificio F',s:'Entrada del edificio'},{id:'central',t:'Zona central',s:'Junto a las cafeterías'},{id:'bien',t:'Bienestar Universitario',s:'Cerca al Samán'}];
